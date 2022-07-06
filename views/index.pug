@@ -17,78 +17,78 @@ block content
           theme = color;
 
       switch(b) {
-        case 'assistance':
-          channels = "#{achan}"
-          kiwi = 'chat-assistance';
-          break;
-        case 'helper':
-          channels = "#tripsit,#tripsit1,#tripsit2,#tripsit3,#tripsitters";
-          nick = "#{anick}-ts";
-          break;
-        case 'sanctuary':
-          channels = '#sanctuary'
-          break;
-        case 'stims':
-          channels = '#stims,#drugs'
-          break;
-        case 'opiates':
-          channels = '#opiates,#drugs'
-          break;
-        case 'psychonaut':
-          channels = '#psychonaut'
-          break;
-        case 'general':
-          channels = '#welcome,#lounge,#drugs,#sanctuary,#music'
-          break;
-        case 'music':
-          channels = '#music,#lounge'
-          break;
-        case 'contrib':
-          channels = '#content,#help,#lounge'
-          break;
-        default: break;
-        case 'help':
-          channels = '#help'
-          break;
-      }
-      window.location = 'https://chat.tripsit.me/'+kiwi+'/?a=1&nick='+nick+'&'+channels;
-
       //-   case 'assistance':
-      //-     channels = "tripsit"
-      //-     nick = "#{anick}-tsme";
+      //-     channels = "#{achan}"
       //-     kiwi = 'chat-assistance';
       //-     break;
       //-   case 'helper':
-      //-     channels = "tripsit,tripsit1,tripsit2,tripsit3,tripsitters";
+      //-     channels = "#tripsit,#tripsit1,#tripsit2,#tripsit3,#tripsitters";
       //-     nick = "#{anick}-ts";
       //-     break;
       //-   case 'sanctuary':
-      //-     channels = 'sanctuary'
+      //-     channels = '#sanctuary'
       //-     break;
       //-   case 'stims':
-      //-     channels = 'stims,drugs'
+      //-     channels = '#stims,#drugs'
       //-     break;
       //-   case 'opiates':
-      //-     channels = 'opiates,drugs'
+      //-     channels = '#opiates,#drugs'
       //-     break;
       //-   case 'psychonaut':
-      //-     channels = 'psychonaut'
+      //-     channels = '#psychonaut'
       //-     break;
       //-   case 'general':
-      //-     channels = 'welcome,lounge,drugs,sanctuary,music'
+      //-     channels = '#welcome,#lounge,#drugs,#sanctuary,#music'
       //-     break;
       //-   case 'music':
-      //-     channels = 'music,lounge'
+      //-     channels = '#music,#lounge'
       //-     break;
       //-   case 'contrib':
-      //-     channels = 'content,help,lounge'
+      //-     channels = '#content,#help,#lounge'
       //-     break;
       //-   default: break;
       //-   case 'help':
-      //-     channels = 'help'
+      //-     channels = '#help'
       //-     break;
       //- }
-      //- window.location = 'https://lounge.tripsit.me/?nick='+nick+'&username='+nick+'&realname=LoungeUser&leaveMessage=Dose%20Responsibly!&join='+channels;
+      //- window.location = 'https://chat.tripsit.me/'+kiwi+'/?a=1&nick='+nick+'&'+channels;
+
+        case 'assistance':
+          channels = "tripsit"
+          nick = "#{anick}-tsme";
+          kiwi = 'chat-assistance';
+          break;
+        case 'helper':
+          channels = "tripsit,tripsit1,tripsit2,tripsit3,tripsitters";
+          nick = "#{anick}-ts";
+          break;
+        case 'sanctuary':
+          channels = 'sanctuary'
+          break;
+        case 'stims':
+          channels = 'stims,drugs'
+          break;
+        case 'opiates':
+          channels = 'opiates,drugs'
+          break;
+        case 'psychonaut':
+          channels = 'psychonaut'
+          break;
+        case 'general':
+          channels = 'welcome,lounge,drugs,sanctuary,music'
+          break;
+        case 'music':
+          channels = 'music,lounge'
+          break;
+        case 'contrib':
+          channels = 'content,help,lounge'
+          break;
+        default: break;
+        case 'help':
+          channels = 'help'
+          break;
+      }
+      window.location = 'https://lounge.tripsit.me/?nick='+nick+'&username='+nick+'&realname=LoungeUser&leaveMessage=Dose%20Responsibly!&join='+channels;
     }
   .container-fluid
     .alert.alert-warning(style='text-align:center') Do you use a VPN? Try using 
