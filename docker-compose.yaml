@@ -1,0 +1,52 @@
+version: '3.9'
+
+name: apps
+
+########################### EXTENSION FIELDS
+# Common environment values
+x-environment: &default-tz-puid-pgid
+  TZ: 'America/Chicago'
+  PUID: '1000'
+  PGID: '1000'
+
+# Keys common to some of the dependent services/apps
+x-common-keys-apps: &common-keys-apps
+  security_opt:
+    - no-new-privileges:true
+  restart: unless-stopped
+
+########################### SERVICES
+services:
+  webchat:
+    <<: *common-keys-apps
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: webchat
+    working_dir: /usr/src/app
+    environment:
+      <<: *default-tz-puid-pgid
+    networks:
+      - webchat-net
+    labels:
+    - com.centurylinklabs.watchtower.enable=true
+    - traefik.enable=true
+    - traefik.docker.network=webchat-net
+    - traefik.http.services.webchat-svc.loadbalancer.server.port=9984
+
+    - traefik.http.routers.webchat-cloudflare.rule=Host(`chat.tripsit.io`)
+    - traefik.http.routers.webchat-cloudflare.entrypoints=websecure
+    - traefik.http.routers.webchat-cloudflare.tls.certresolver=letsencrypt
+    - traefik.http.routers.webchat-cloudflare.service=webchat-svc
+    - traefik.http.routers.webchat-cloudflare.middlewares=default@file
+      
+    - traefik.http.routers.webchat-namecheap.rule=Host(`chat.tripsit.me`, `chat2.tripsit.me`)
+    - traefik.http.routers.webchat-namecheap.entrypoints=websecure
+    - traefik.http.routers.webchat-namecheap.tls.certresolver=letsencrypt-legacy
+    - traefik.http.routers.webchat-namecheap.service=webchat-svc
+    - traefik.http.routers.webchat-namecheap.middlewares=default@file
+    command: node ./bin/www
+
+networks:
+  webchat-net:
+    name: webchat-net

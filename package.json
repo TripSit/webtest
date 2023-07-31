@@ -1,24 +1,29 @@
 {
-  "name": "welcome-tripsit",
-  "version": "0.0.0",
+  "name": "webhcat",
+  "version": "1.0.0",
   "description": "This serves the channel overview page on https://chat.tripsit.me/ and welcomes users to our chatrooms.",
+  "homepage": "https://chat.tripsit.me",
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "docker compose --project-name apps up -d --force-recreate --build",
+    "## Docker": "",
+    "logs": "docker container logs webchat -f -n 100",
+    "test": "docker exec -it webchat npm run local:test",
+    "lint": "docker exec -it webchat npm run local:lint"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tripsit/welcome.git"
+    "url": "git+https://github.com/tripsit/webchat.git"
   },
   "keywords": [
     "tripsit"
   ],
-  "author": "",
+  "author": "reality",
+  "maintainers": ["Eric Moonbear/Teknos"],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tripsit/welcome/issues"
+    "url": "https://github.com/tripsit/webchat/issues"
   },
-  "homepage": "https://github.com/tripsit/welcome#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
