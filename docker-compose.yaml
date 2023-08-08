@@ -39,12 +39,6 @@ services:
     - traefik.http.routers.webchat-cloudflare.tls.certresolver=letsencrypt
     - traefik.http.routers.webchat-cloudflare.service=webchat-svc
     - traefik.http.routers.webchat-cloudflare.middlewares=default@file
-      
-    - traefik.http.routers.webchat-namecheap.rule=Host(`chat.tripsit.me`, `chat2.tripsit.me`)
-    - traefik.http.routers.webchat-namecheap.entrypoints=websecure
-    - traefik.http.routers.webchat-namecheap.tls.certresolver=letsencrypt-legacy
-    - traefik.http.routers.webchat-namecheap.service=webchat-svc
-    - traefik.http.routers.webchat-namecheap.middlewares=default@file
     command: node ./bin/www
 
 networks:
