@@ -48,8 +48,8 @@ jobs:
         
       - name: Run Build
         env:
-          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
-        run: npx run build
+        run: | 
+          npm run build
         continue-on-error: true
 
       - name: Upload analysis results to GitHub
